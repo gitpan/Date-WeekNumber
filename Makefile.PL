@@ -22,6 +22,7 @@ my %WriteMakefileArgs = (
   "NAME" => "Date::WeekNumber",
   "PREREQ_PM" => {
     "Carp" => 0,
+    "Date::Calc" => 0,
     "Exporter" => 0,
     "POSIX" => 0,
     "Scalar::Util" => 0,
@@ -32,7 +33,7 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.01",
+  "VERSION" => "0.02",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -41,6 +42,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Carp" => 0,
+  "Date::Calc" => 0,
   "Exporter" => 0,
   "POSIX" => 0,
   "Scalar::Util" => 0,

@@ -15,6 +15,7 @@ meta-spec:
 name: Date-WeekNumber
 requires:
   Carp: 0
+  Date::Calc: 0
   Exporter: 0
   POSIX: 0
   Scalar::Util: 0
@@ -25,4 +26,4 @@ requires:
 resources:
   homepage: https://github.com/neilbowers/Date-WeekNumber
   repository: https://github.com/neilbowers/Date-WeekNumber.git
-version: 0.01
+version: 0.02
