@@ -1,6 +1,6 @@
 package Date::WeekNumber;
 # ABSTRACT: calculate week of the year (ISO 8601 weeks, or 'CPAN weeks')
-$Date::WeekNumber::VERSION = '0.02';
+$Date::WeekNumber::VERSION = '0.03';
 use 5.006;
 use strict;
 use warnings;
@@ -201,13 +201,13 @@ L<Date::ISO8601> provides a number of functions for converting
 dates according to ISO 8601.
 
 L<Date::ISO> can be used to produce an ISO week number,
-but you need to use the C<iso_year()> method, which isn't
-mentioned in the documentation.
+using the C<iso_year()> and C<iso_week()> methods.
 
 L<Date::WeekOfYear> provides a C<WeekOfYear()> function,
 which returns the week number and associated year.
-It doesn't say what scheme it follows though, and it
-certainly isn't the ISO 8601 scheme.
+As of version 1.5 this return the ISO 8601 week number,
+prior to that it returned something slightly different;
+you can still request the old week numbering scheme.
 
 =head1 REPOSITORY
 
