@@ -1,6 +1,6 @@
 package Date::WeekNumber;
 # ABSTRACT: calculate week of the year (ISO 8601 weeks, or 'CPAN weeks')
-$Date::WeekNumber::VERSION = '0.03';
+$Date::WeekNumber::VERSION = '0.04';
 use 5.006;
 use strict;
 use warnings;
@@ -50,6 +50,9 @@ sub _dwim_date
                           && exists($param->{month})
                           && exists($param->{day});
             croak "you must specify year, month and day\n";
+        }
+        elsif (reftype($param)) {
+            croak "you can't pass a reference of type ".reftype($param);
         }
         elsif ($param =~ /^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$/) {
             return { year => $1, month => $2, day => $3 };
@@ -126,7 +129,10 @@ in whatever format you have it available, and it'll be handled.
 
 =head1 Week numbering scheme
 
-=head2 ISO 8601 Weeks
+=head2 iso_week_number
+
+The C<iso_week_number()> function returns a string with the week number
+according to ISO 8601.
 
 ISO 8601 defines week 01 as being the week with the first Thursday in it.
 The first day of the week is Monday. Consider the transition from 2013 to 2014:
@@ -155,7 +161,10 @@ Similarly, consider the transition from 2009 to 2010:
 In this case 2009-W52 runs runs 28th December 2009 through 3rd January 2010,
 and 2010-W01 starts on Monday 4th January 2010.
 
-=head2 CPAN Weeks
+=head2 cpan_week_number
+
+The C<cpan_week_number()> function returns a string with the week number
+according to 'CPAN Weeks'.
 
 CPAN Weeks run from Sunday to Saturday, with week 01 of the year being
 the week containing the first Sunday in January. Consider the transition
